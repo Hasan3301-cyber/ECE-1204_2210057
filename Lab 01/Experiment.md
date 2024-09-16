@@ -12,7 +12,7 @@
 
 ### Output:
 
-![image](https://github.com/user-attachments/assets/210707f8-eed5-4417-b7a6-3ecd9db80da5)
+![image](https://github.com/user-attachments/assets/bfc0bfaf-adcb-4a62-9e30-2342a2e4ef6c)
 
 
 ## Problem No : 02

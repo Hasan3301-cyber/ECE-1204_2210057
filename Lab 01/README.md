@@ -64,13 +64,54 @@ int main() {
 ### Code:
 
 ```
+#include <iostream>
+using namespace std;
+class Student {
+    public:
+        string name;
+        int roll;
+        string department;
+        int series;
+        int age;
+    void display() {
+        cout << "Student Information:" << endl;
+        cout << "Name: " << name << endl;
+        cout << "Roll Number: " << roll << endl;
+        cout << "Department: " << department << endl;
+        cout << "Series: " << series << endl;
+        cout << "Age: " << age << endl;
+    }
+};
+
+int main() {
+    Student s1;
+    cout << "Enter Student Name: ";
+    getline(cin, s1.name);
+
+    cout << "Enter Roll Number: ";
+    cin >> s1.roll;
+
+    cout << "Enter Department: ";
+    cin >> s1.department;
+
+    cout << "Enter Series: ";
+    cin >> s1.series;
+
+    cout << "Enter Age: ";
+    cin >> s1.age;
+
+    s1.display();
+
+    return 0;
+}
 
 
 ```
 
 ### Output :
 
-![image](https://github.com/user-attachments/assets/604b5eca-ab62-4df8-9fcf-94d01b07c2d2)
+![Output 2 (2)](https://github.com/user-attachments/assets/007bd056-65ff-4545-b7ca-d402bb5ef38b)
+
 
 
 ## Discussion and Conclusion:

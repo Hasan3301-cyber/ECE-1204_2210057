@@ -29,5 +29,6 @@ Rajshahi - 6204
 
 | Lab No. | Title |  Link   |
 |---------|--------| ------- |
-| 01      | Class and Object | [Lab 01](https://github.com/Huzayfa718/ECE-1204_2210048/blob/main/Lab%2001/Experiments.md) |
+| 01      | Class and Object | [Lab 01](https://github.com/Hasan3301-cyber/ECE-1204_2210057/tree/main/Lab%2001) |
+| 02      | Virtual Function and Abstract class | [Lab 02](https://github.com/Hasan3301-cyber/ECE-1204_2210057/tree/main/Lab%2002) |
 

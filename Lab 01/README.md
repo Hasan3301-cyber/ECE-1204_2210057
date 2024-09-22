@@ -73,7 +73,8 @@ int main() {
 ![image](https://github.com/user-attachments/assets/604b5eca-ab62-4df8-9fcf-94d01b07c2d2)
 
 
-## Discussion :
+## Discussion and Conclusion:
+In this lab class, we worked with the C++ programming language and focused on several fundamental concepts of object-oriented programming. We learned how to create classes and objects, how to initialize objects, and how to implement access modifiers like public and private
 
 
 

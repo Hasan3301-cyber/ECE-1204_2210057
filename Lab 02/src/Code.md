@@ -14,14 +14,14 @@ public:
     if ((Year % 4 == 0 && Year % 100 != 0) || (Year % 400 == 0)){
 
      int month[] = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-     if(Month>0 && Month<13 && (Day <=month[Month])) {
+     if(Month>0 && Month<13 && (Day <=month[Month-1])) {
         cout <<"Date is Valid"<<endl<<"Date is:"<<Day<<"-"<<Month<<"-"<<Year;
      }
      else {cout <<" Date is Invalid";}
     }
     else {
         int month[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-     if(Month>0 && Month<13 && (Day <=month[Month])) {
+     if(Month>0 && Month<13 && (Day <=month[Month-1])) {
         cout <<"Date is Valid"<<endl<<"Date is:"<<Day<<"-"<<Month<<"-"<<Year;
      }
      else {cout <<" Date is Invalid";}

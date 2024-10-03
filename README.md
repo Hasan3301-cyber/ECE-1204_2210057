@@ -32,5 +32,7 @@ Rajshahi - 6204
 | 01      | Class and Object | [Lab 01](https://github.com/Hasan3301-cyber/ECE-1204_2210057/tree/main/Lab%2001) |
 | 02      | Virtual Function and Abstract class | [Lab 02](https://github.com/Hasan3301-cyber/ECE-1204_2210057/tree/main/Lab%2002) |
 | 03      | Finding the Student with Highest, Lowest Marks and Calculating the Average | [Lab 03](https://github.com/Hasan3301-cyber/ECE-1204_2210057/tree/main/Lab%2003) |
+| 04      | Finding the Student with Highest, Lowest Marks and Calculating the Average | [Lab 04](https://github.com/Hasan3301-cyber/ECE-1204_2210057/blob/main/Lab%2004/README.md) |
+
 
 

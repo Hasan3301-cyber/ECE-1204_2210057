@@ -1,9 +1,9 @@
 # Experiment No:04
-# Date of Submission : 30-09-2024
+# Date of Submission : 04-10-2024
 # Experiment Name :
-Finding the Student with Highest, Lowest Marks and Calculating the Average
+Finding the largest string in a array of string using OOP concept.
 # Theory :
-A getter (or accessor) function is a method used in object-oriented programming to retrieve or "get" the value of a private attribute. It allows controlled access to an object's internal data without exposing the internal representation directly.A setter (or mutator) function is a method used to modify or "set" the value of a private attribute. It ensures that the attribute is modified in a controlled way, often allowing validation or additional processing before making changes.Using getter and setter function ,solved the problem
+An array is a collection of items stored at contiguous memory locations. It is used to store multiple values of the same type in a single variable.Passing arrays to an object typically occurs through the class constructor or through member functions. This allows the class to operate on the array data without exposing it directly to the outside world.
 ## Problem No : 04
 Write a C++ program to find the third largest string in a given array of strings.(Use OOP Concept)
 ## 
@@ -49,11 +49,11 @@ int main() {
 ```
 
 ### Output:
-![LAB 03 OUTPUT 2](https://github.com/user-attachments/assets/aefc6d30-5188-49eb-9ee0-e90e501591cf)
+![image](https://github.com/user-attachments/assets/c9b8d565-5918-46fc-b30b-bea019714a10)
+
 
 ## Discussion and Conclusion:
-In this lab class, we worked with the C++ programming language and focused on several fundamental concepts of object-oriented programming. We learned how to use getter and setter function for the access of private data.
-
+On this lab class, we tried to link up with procedural programming language that we can also solve the problem related to procedural programming language using oop concept. And We learned how to pass an array to object.
 
 
 

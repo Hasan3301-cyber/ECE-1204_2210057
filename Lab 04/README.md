@@ -53,7 +53,7 @@ int main() {
 
 
 ## Discussion and Conclusion:
-On this lab class, we tried to link up with procedural programming language that we can also solve the problem related to procedural programming language using oop concept. And We learned how to pass an array to object.
+On this lab class, we tried to link up procedural programming language with OOP that we can also solve the problem related to procedural programming language using OOP concept. And We learned how to pass an array to object.
 
 
 

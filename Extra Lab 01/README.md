@@ -3,13 +3,12 @@
 # Experiment Name :
 Using OOP concept(Operator Overloading,Inheritance,Polymorphism) solve different kinds of problem.
 # Theory :
-
+Operator Overloading,it allows you to redefine how operators (like +, ==, >) work with objects of a class, enabling them to perform specific actions based on the class’s behavior. Example: Using + to add two objects of a custom class.Inheritance,it is a mechanism where a new class (subclass) inherits properties and methods from an existing class (superclass), promoting code reuse and hierarchy. Example: A Manager class inherits from an Employee class.Polymorphism,it allows objects of different classes to be treated as objects of a common superclass, enabling the use of a single interface for different underlying forms (e.g., method overriding). Example: Different shapes (like Circle, Rectangle) implementing the same area() method.
 ## Problem No : 01
 Create a class called Book with attributes such as title, author, and price. Include a method
 to display the book's details. Write a program that instantiates a Book object and displays
 its details.
 
----
 
 ### Code :
 
@@ -902,3 +901,5 @@ int main() {
 ### Output:
 ![image](https://github.com/user-attachments/assets/96813693-ed10-4684-9a9a-7d7afbc4ffc5)
 
+## Discussion:
+On those lab problem we use oop concept to solve 

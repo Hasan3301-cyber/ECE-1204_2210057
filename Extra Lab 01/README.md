@@ -1,9 +1,9 @@
 # Experiment No:05
 # Date of Submission : 17-10-2024
 # Experiment Name :
-Basic of C++ Language like how to Define Class and Object.
+Using OOP concept(Operator Overloading,Inheritance,Polymorphism) solve different kinds of problem.
 # Theory :
-A class is a blueprint or template for creating objects. It defines the data (attributes or properties) and functions (methods or behaviors) that the objects created from the class will have.An object is an instance of a class.The objective is to design a C++ class and object.
+
 ## Problem No : 01
 Create a class called Book with attributes such as title, author, and price. Include a method
 to display the book's details. Write a program that instantiates a Book object and displays
@@ -403,49 +403,103 @@ the functionality of the ShoppingCart class.
 
 ```
 #include <iostream>
+#include <vector>
 #include <string>
 using namespace std;
-class Car {
+class Product {
+private:
+    string name;
+    double price;
+
 public:
-    double mi;
-    string co;
-    string mod;
-    string b;
-    void display() {
-        cout << "Mileage: " << mi << endl;
-        cout << "Color: " << co << endl;
-        cout << "Model: " << mod << endl;
-        cout << "Brand: " << b << endl;
-        cout << endl;
+    Product(string n, double p) {
+        name = n;
+        price = p;
+    }
+
+    double getPrice() const {
+        return price;
+    }
+
+    string getName() const {
+        return name;
+    }
+
+    void display() const {
+        cout << "Product: " << name << ", Price: " << price << endl;
     }
 };
+
+class ShoppingCart {
+private:
+    vector<Product> cart;
+
+public:
+    void add(const Product &p) {
+        cart.push_back(p);
+        cout << "Added to cart: " << p.getName() << endl;
+    }
+
+    void remov(const string &name) {
+        for (int i = 0; i < cart.size(); ++i) {
+            if (cart[i].getName() == name) {
+                cout << "Removed from cart: " << cart[i].getName() << endl;
+                cart.erase(cart.begin() + i);
+                return;
+            }
+        }
+        cout << "Product not found: " << name << endl;
+    }
+
+    double total()  {
+        double total = 0.0;
+        for (int i = 0; i < cart.size(); ++i) {
+            total =total+ cart[i].getPrice();
+        }
+        return total;
+    }
+
+    void display2()  {
+
+            for (int i = 0; i < cart.size(); ++i) {
+                cart[i].display();
+            }
+            cout << "Total Price: " << total() << endl;
+        }
+
+};
+
 int main() {
-    Car s[2];
-    for (int i = 0; i < 2; ++i) {
-        cout << "Enter mileage for Car " << (i + 1) << ": ";
-        cin >> s[i].mi;
-        cin.ignore();
-        cout << "Enter color for Car " << (i + 1) << ": ";
-        getline(cin, s[i].co);
-        cout << "Enter model for Car " << (i + 1) << ": ";
-        getline(cin, s[i].mod);
-        cout << "Enter brand for Car " << (i + 1) << ": ";
-        getline(cin, s[i].b);
-        cout<<endl;
-    }
-    for (int i = 0; i < 2; ++i) {
-        cout << "Information for Car " << (i + 1) << ":" << endl;
-        s[i].display();
-        cout<<endl;
-    }
+    ShoppingCart cart;
+
+    Product p1("Laptop", 999.99);
+    Product p2("Smartphone", 699.99);
+    Product p3("Headphones", 49.99);
+
+    cart.add(p1);
+    cart.add(p2);
+    cart.add(p3);
+
+    cout << endl;
+    cart.display2();
+
+    cout << endl;
+    cart.remov("Smartphone");
+
+    cout << endl;
+    cart.display2();
+
+    cout << endl;
+    cart.remov("Tablet");
+
     return 0;
 }
 
 ```
 
 ### Output:
+![image](https://github.com/user-attachments/assets/b5397bfe-130a-40d1-97a1-04156b9abfae)
 
-![image](https://github.com/user-attachments/assets/bfc0bfaf-adcb-4a62-9e30-2342a2e4ef6c)
 
 ## Problem No : 08
 Write an abstract class called Appliance with an abstract method turnOn(). Create
@@ -500,41 +554,95 @@ class.
 
 ```
 #include <iostream>
+#include <vector>
 #include <string>
 using namespace std;
-class Car {
+
+class Student {
+private:
+    int id;
+    string name;
+
 public:
-    double mi;
-    string co;
-    string mod;
-    string b;
+    Student(int i, string n) {
+        id = i;
+        name = n;
+    }
+
+    int getId() {
+        return id;
+    }
+
+    string getName() {
+        return name;
+    }
+
     void display() {
-        cout << "Mileage: " << mi << endl;
-        cout << "Color: " << co << endl;
-        cout << "Model: " << mod << endl;
-        cout << "Brand: " << b << endl;
-        cout << endl;
+        cout << "ID: " << id << ", Name: " << name << endl;
     }
 };
+
+class School {
+private:
+    vector<Student> students;
+
+public:
+    void add( Student &o) {
+        students.push_back(o);
+        cout << "Student added: " << o.getName() << endl;
+    }
+
+    void remov(int id) {
+        for (int i = 0; i < students.size(); ++i) {
+            if (students[i].getId() == id) {
+                cout << "Student removed: " << students[i].getName() << endl;
+                students.erase(students.begin() + i);
+                return;
+            }
+        }
+        cout << "Student with ID " << id << " not found." << endl;
+    }
+
+    void searcha(int id) {
+        for (int i = 0; i < students.size(); ++i) {
+            if (students[i].getId() == id) {
+                cout << "Student found: ";
+                students[i].display();
+                return;
+            }
+        }
+        cout << "Student with ID " << id << " not found." << endl;
+    }
+
+    void display2() {
+        for (int i = 0; i < students.size(); ++i) {
+            students[i].display();
+        }
+    }
+};
+
 int main() {
-    Car s[2];
-    for (int i = 0; i < 2; ++i) {
-        cout << "Enter mileage for Car " << (i + 1) << ": ";
-        cin >> s[i].mi;
-        cin.ignore();
-        cout << "Enter color for Car " << (i + 1) << ": ";
-        getline(cin, s[i].co);
-        cout << "Enter model for Car " << (i + 1) << ": ";
-        getline(cin, s[i].mod);
-        cout << "Enter brand for Car " << (i + 1) << ": ";
-        getline(cin, s[i].b);
-        cout<<endl;
-    }
-    for (int i = 0; i < 2; ++i) {
-        cout << "Information for Car " << (i + 1) << ":" << endl;
-        s[i].display();
-        cout<<endl;
-    }
+    School s;
+    Student s1(40, "rahim");
+    Student s2(90, "jamal");
+    Student s3(17, "hasan");
+
+    s.add(s1);
+    s.add(s2);
+    s.add(s3);
+
+    cout << endl;
+    s.display2();
+
+    cout << endl;
+    s.searcha(40);
+
+    cout << endl;
+    s.remov(40);
+
+    cout << endl;
+    s.display2();
+
     return 0;
 }
 
@@ -542,7 +650,8 @@ int main() {
 
 ### Output:
 
-![image](https://github.com/user-attachments/assets/bfc0bfaf-adcb-4a62-9e30-2342a2e4ef6c)
+![image](https://github.com/user-attachments/assets/11ea64c1-d24f-42b6-8367-969b1f063516)
+
 
 ## Problem No : 10
 Create a class Game that has methods to start, pause, and end the game. Implement a

@@ -528,7 +528,7 @@ int main() {
 
 ### Output:
 
-![image](https://github.com/user-attachments/assets/813fa463-33e2-44ef-87f6-46fa11194118)
+![image](https://github.com/user-attachments/assets/d728058a-8b14-4752-a1b3-0a69634659cc)
 
 ## Problem No : 11
 Design a class Person that includes a static variable to count the number of Person

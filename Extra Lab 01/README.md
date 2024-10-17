@@ -314,13 +314,85 @@ to test the functionality of the Library class.
 ### Code :
 
 ```
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+class Book {
+private:
+    string title;
+    string author;
+    double price;
+
+public:
+    Book(string t, string a, double p)   {
+    title=t;
+    author=a;
+    price=p;
+    }
+    void display()  {
+        cout << "Title: " << title << ", Author: " << author << ", Price: " << price << endl;
+    }
+    string get()  {
+        return title;
+    }
+};
+class Library {
+private:
+    vector<Book> books;
+
+public:
+    void add(Book &book) {
+        books.push_back(book);
+        cout << "Book added: " << book.get() << endl;
+    }
+    void rem( const string &title) {
+        for (int i = 0; i < books.size(); i++) {
+            if (books[i].get() == title) {
+                books.erase(books.begin() + i);
+                cout << "Book removed: " << title << endl;
+                return;
+            }
+        }
+        cout << "Book not found: " << title << endl;
+    }
+    void display2() {
+
+            cout << "Available books in the library now:" << endl;
+            for(int i=0;i<books.size();i++){
+
+            books[i].display();
+        }
+
+}
+};
+
+int main() {
+    Library library;
+
+    Book book1("Math", "hk das", 568);
+    Book book2("Chemistry", "hajari", 786);
+    Book book3("Physics", "amir", 340);
+    library.add(book1);
+    library.add(book2);
+    library.add(book3);
+    cout << endl;
+    library.display2();
+    cout << endl;
+    library.rem("Chemistry");
+    cout << endl;
+    library.display2();
+
+    return 0;
+}
+
 
 
 ```
 
 ### Output:
+![image](https://github.com/user-attachments/assets/f2a203d7-1c77-4844-827f-989e4d2dea99)
 
-![image](https://github.com/user-attachments/assets/bfc0bfaf-adcb-4a62-9e30-2342a2e4ef6c)
 
 ## Problem No : 07
 Create a class ShoppingCart that holds a list of Product objects. Implement methods
@@ -572,323 +644,152 @@ int main() {
 
 
 ## Problem No : 12
-## Write a program to store and display multiple cars, including model, color , mileage and brand into details.
-
----
+Define a class Complex with private members real and imaginary. Overload the
+operators +, -, *, and / to perform addition, subtraction, multiplication, and division of
+two complex numbers, respectively. Create a constructor to initialize the complex number
+and include a method to display the result. The main() function should be used to test
+these overloaded operators.
 
 ### Code :
 
 ```
 #include <iostream>
-#include <string>
 using namespace std;
-class Car {
+
+class Complex {
+private:
+    double r;
+    double m;
+
 public:
-    double mi;
-    string co;
-    string mod;
-    string b;
-    void display() {
-        cout << "Mileage: " << mi << endl;
-        cout << "Color: " << co << endl;
-        cout << "Model: " << mod << endl;
-        cout << "Brand: " << b << endl;
-        cout << endl;
+    Complex(double a , double b) {
+        r = a;
+        m = b;
+    }
+    void display() const {
+        if (m >= 0)
+            cout << r << " + " << m << "i" << endl;
+        else
+            cout << r << " - " << -m << "i" << endl;
+    }
+    Complex operator+(const Complex &o)  {
+        return Complex(r + o.r, m + o.m);
+    }
+
+    Complex operator-(const Complex &o)  {
+        return Complex(r - o.r, m - o.m);
+    }
+    Complex operator*(const Complex &o)  {
+        double x = (r * o.r) - (m * o.m);
+        double y = (r * o.m) + (m * o.r);
+        return Complex(x, y);
+    }
+    Complex operator/(const Complex &o)  {
+        double d = o.r * o.r + o.m * o.m;
+        double x = (r * o.r + m * o.m) / d;
+        double y = (m * o.r - r * o.m) / d;
+        return Complex(x, y);
     }
 };
+
 int main() {
-    Car s[2];
-    for (int i = 0; i < 2; ++i) {
-        cout << "Enter mileage for Car " << (i + 1) << ": ";
-        cin >> s[i].mi;
-        cin.ignore();
-        cout << "Enter color for Car " << (i + 1) << ": ";
-        getline(cin, s[i].co);
-        cout << "Enter model for Car " << (i + 1) << ": ";
-        getline(cin, s[i].mod);
-        cout << "Enter brand for Car " << (i + 1) << ": ";
-        getline(cin, s[i].b);
-        cout<<endl;
-    }
-    for (int i = 0; i < 2; ++i) {
-        cout << "Information for Car " << (i + 1) << ":" << endl;
-        s[i].display();
-        cout<<endl;
-    }
+    Complex c1(4.0, 5.0);
+    Complex c2(2.0, 3.0);
+    cout << "Complex number 1: ";
+    c1.display();
+    cout << "Complex number 2: ";
+    c2.display();
+    Complex r = c1 + c2;
+    cout << "\nAddition: ";
+    r.display();
+    r = c1 - c2;
+    cout << "Subtraction: ";
+    r.display();
+    r = c1 * c2;
+    cout << "Multiplication: ";
+    r.display();
+    r = c1 / c2;
+    cout << "Division: ";
+    r.display();
+
     return 0;
 }
+
+
 
 ```
 
 ### Output:
 
-![image](https://github.com/user-attachments/assets/bfc0bfaf-adcb-4a62-9e30-2342a2e4ef6c)
+![image](https://github.com/user-attachments/assets/5e3c4e06-eee8-4c20-b90f-8b5dd04d443e)
+
 
 ## Problem No : 13
-## Write a program to store and display multiple cars, including model, color , mileage and brand into details.
-
----
-
+Define a class Rectangle with private members length and breadth. Overload the
+operators == to check if two rectangles have equal areas, and > and < to compare if one
+rectangle is larger or smaller than the other based on area. Implement a constructor to
+initialize the rectangle's dimensions and a method to calculate its area. The main()
+function should test the overloaded operators.
 ### Code :
 
 ```
 #include <iostream>
-#include <string>
 using namespace std;
-class Car {
+class Rect {
+private:
+    double len;
+    double breadth;
+
 public:
-    double mi;
-    string co;
-    string mod;
-    string b;
-    void display() {
-        cout << "Mileage: " << mi << endl;
-        cout << "Color: " << co << endl;
-        cout << "Model: " << mod << endl;
-        cout << "Brand: " << b << endl;
-        cout << endl;
+    Rect(double l , double b) {
+        len = l;
+        breadth = b;
+    }
+    double area() const {
+        return len * breadth;
+    }
+    bool  operator==(const Rect &other)  {
+        return this->area() == other.area();
+    }
+    bool operator>(const Rect &other)  {
+        return this->area() > other.area();
+    }
+    bool operator<(const Rect &other)  {
+        return this->area() < other.area();
+    }
+    void display() const {
+        cout << "Length: " << len << ", Breadth: " << breadth << ", Area: " << area() << endl;
     }
 };
 int main() {
-    Car s[2];
-    for (int i = 0; i < 2; ++i) {
-        cout << "Enter mileage for Car " << (i + 1) << ": ";
-        cin >> s[i].mi;
-        cin.ignore();
-        cout << "Enter color for Car " << (i + 1) << ": ";
-        getline(cin, s[i].co);
-        cout << "Enter model for Car " << (i + 1) << ": ";
-        getline(cin, s[i].mod);
-        cout << "Enter brand for Car " << (i + 1) << ": ";
-        getline(cin, s[i].b);
-        cout<<endl;
+    Rect rect1(5.0, 4.0);
+    Rect rect2(6.0, 3.0);
+    cout << "Rectangle 1: ";
+    rect1.display();
+    cout << "Rectangle 2: ";
+    rect2.display();
+    if (rect1 == rect2) {
+        cout << "The two rectangles have equal areas." << endl;
+    } else {
+        cout << "The two rectangles do not have equal areas." << endl;
     }
-    for (int i = 0; i < 2; ++i) {
-        cout << "Information for Car " << (i + 1) << ":" << endl;
-        s[i].display();
-        cout<<endl;
+    if (rect1 > rect2) {
+        cout << "Rectangle 1 is larger than Rectangle 2." << endl;
+    } else {
+        cout << "Rectangle 1 is not larger than Rectangle 2." << endl;
     }
+    if (rect1 < rect2) {
+        cout << "Rectangle 1 is smaller than Rectangle 2." << endl;
+    } else {
+        cout << "Rectangle 1 is not smaller than Rectangle 2." << endl;
+    }
+
     return 0;
 }
+
 
 ```
 
 ### Output:
-
-![image](https://github.com/user-attachments/assets/bfc0bfaf-adcb-4a62-9e30-2342a2e4ef6c)
-
-## Problem No : 14
-## Write a program to store and display multiple cars, including model, color , mileage and brand into details.
-
----
-
-### Code :
-
-```
-#include <iostream>
-#include <string>
-using namespace std;
-class Car {
-public:
-    double mi;
-    string co;
-    string mod;
-    string b;
-    void display() {
-        cout << "Mileage: " << mi << endl;
-        cout << "Color: " << co << endl;
-        cout << "Model: " << mod << endl;
-        cout << "Brand: " << b << endl;
-        cout << endl;
-    }
-};
-int main() {
-    Car s[2];
-    for (int i = 0; i < 2; ++i) {
-        cout << "Enter mileage for Car " << (i + 1) << ": ";
-        cin >> s[i].mi;
-        cin.ignore();
-        cout << "Enter color for Car " << (i + 1) << ": ";
-        getline(cin, s[i].co);
-        cout << "Enter model for Car " << (i + 1) << ": ";
-        getline(cin, s[i].mod);
-        cout << "Enter brand for Car " << (i + 1) << ": ";
-        getline(cin, s[i].b);
-        cout<<endl;
-    }
-    for (int i = 0; i < 2; ++i) {
-        cout << "Information for Car " << (i + 1) << ":" << endl;
-        s[i].display();
-        cout<<endl;
-    }
-    return 0;
-}
-
-```
-
-### Output:
-
-![image](https://github.com/user-attachments/assets/bfc0bfaf-adcb-4a62-9e30-2342a2e4ef6c)
-
-## Problem No : 15
-## Write a program to store and display multiple cars, including model, color , mileage and brand into details.
-
----
-
-### Code :
-
-```
-#include <iostream>
-#include <string>
-using namespace std;
-class Car {
-public:
-    double mi;
-    string co;
-    string mod;
-    string b;
-    void display() {
-        cout << "Mileage: " << mi << endl;
-        cout << "Color: " << co << endl;
-        cout << "Model: " << mod << endl;
-        cout << "Brand: " << b << endl;
-        cout << endl;
-    }
-};
-int main() {
-    Car s[2];
-    for (int i = 0; i < 2; ++i) {
-        cout << "Enter mileage for Car " << (i + 1) << ": ";
-        cin >> s[i].mi;
-        cin.ignore();
-        cout << "Enter color for Car " << (i + 1) << ": ";
-        getline(cin, s[i].co);
-        cout << "Enter model for Car " << (i + 1) << ": ";
-        getline(cin, s[i].mod);
-        cout << "Enter brand for Car " << (i + 1) << ": ";
-        getline(cin, s[i].b);
-        cout<<endl;
-    }
-    for (int i = 0; i < 2; ++i) {
-        cout << "Information for Car " << (i + 1) << ":" << endl;
-        s[i].display();
-        cout<<endl;
-    }
-    return 0;
-}
-
-```
-
-### Output:
-
-![image](https://github.com/user-attachments/assets/bfc0bfaf-adcb-4a62-9e30-2342a2e4ef6c)
-
-## Problem No : 16
-## Write a program to store and display multiple cars, including model, color , mileage and brand into details.
-
----
-
-### Code :
-
-```
-#include <iostream>
-#include <string>
-using namespace std;
-class Car {
-public:
-    double mi;
-    string co;
-    string mod;
-    string b;
-    void display() {
-        cout << "Mileage: " << mi << endl;
-        cout << "Color: " << co << endl;
-        cout << "Model: " << mod << endl;
-        cout << "Brand: " << b << endl;
-        cout << endl;
-    }
-};
-int main() {
-    Car s[2];
-    for (int i = 0; i < 2; ++i) {
-        cout << "Enter mileage for Car " << (i + 1) << ": ";
-        cin >> s[i].mi;
-        cin.ignore();
-        cout << "Enter color for Car " << (i + 1) << ": ";
-        getline(cin, s[i].co);
-        cout << "Enter model for Car " << (i + 1) << ": ";
-        getline(cin, s[i].mod);
-        cout << "Enter brand for Car " << (i + 1) << ": ";
-        getline(cin, s[i].b);
-        cout<<endl;
-    }
-    for (int i = 0; i < 2; ++i) {
-        cout << "Information for Car " << (i + 1) << ":" << endl;
-        s[i].display();
-        cout<<endl;
-    }
-    return 0;
-}
-
-```
-
-### Output:
-
-![image](https://github.com/user-attachments/assets/bfc0bfaf-adcb-4a62-9e30-2342a2e4ef6c)
-
-## Problem No : 17
-## Write a program to store and display multiple cars, including model, color , mileage and brand into details.
-
----
-
-### Code :
-
-```
-#include <iostream>
-#include <string>
-using namespace std;
-class Car {
-public:
-    double mi;
-    string co;
-    string mod;
-    string b;
-    void display() {
-        cout << "Mileage: " << mi << endl;
-        cout << "Color: " << co << endl;
-        cout << "Model: " << mod << endl;
-        cout << "Brand: " << b << endl;
-        cout << endl;
-    }
-};
-int main() {
-    Car s[2];
-    for (int i = 0; i < 2; ++i) {
-        cout << "Enter mileage for Car " << (i + 1) << ": ";
-        cin >> s[i].mi;
-        cin.ignore();
-        cout << "Enter color for Car " << (i + 1) << ": ";
-        getline(cin, s[i].co);
-        cout << "Enter model for Car " << (i + 1) << ": ";
-        getline(cin, s[i].mod);
-        cout << "Enter brand for Car " << (i + 1) << ": ";
-        getline(cin, s[i].b);
-        cout<<endl;
-    }
-    for (int i = 0; i < 2; ++i) {
-        cout << "Information for Car " << (i + 1) << ":" << endl;
-        s[i].display();
-        cout<<endl;
-    }
-    return 0;
-}
-
-```
-
-### Output:
-
-![image](https://github.com/user-attachments/assets/bfc0bfaf-adcb-4a62-9e30-2342a2e4ef6c)
-
-
-
+![image](https://github.com/user-attachments/assets/96813693-ed10-4684-9a9a-7d7afbc4ffc5)
 

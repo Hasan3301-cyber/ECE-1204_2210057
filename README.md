@@ -33,6 +33,8 @@ Rajshahi - 6204
 | 02      | Virtual Function and Abstract class | [Lab 02](https://github.com/Hasan3301-cyber/ECE-1204_2210057/tree/main/Lab%2002) |
 | 03      | Finding the Student with Highest, Lowest Marks and Calculating the Average | [Lab 03](https://github.com/Hasan3301-cyber/ECE-1204_2210057/tree/main/Lab%2003) |
 | 04      | Finding the largest string in a array of string using OOP concept | [Lab 04](https://github.com/Hasan3301-cyber/ECE-1204_2210057/blob/main/Lab%2004/README.md) |
+| 05      | Using OOP concept(Operator Overloading,Inheritance,Polymorphism) solve different kinds of problem | [ Extra Lab 05](https://github.com/Hasan3301-cyber/ECE-1204_2210057/blob/main/Extra%20Lab%2001/README.md) |
+
 
 
 

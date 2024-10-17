@@ -33,7 +33,7 @@ public:
     void display() {
         cout << "Title: " << title << endl;
         cout << "Author: " << author << endl;
-        cout << "Price: $" << price << endl;
+        cout << "Price: " << price << endl;
     }
 };
 int main() {
@@ -51,7 +51,7 @@ int main() {
 
 ### Output:
 
-![image](https://github.com/user-attachments/assets/8441f996-e9a7-4f61-9e1d-ff6fc3d8c2fe)
+![image](https://github.com/user-attachments/assets/7c8362f2-970b-438a-8769-9398ac9dd582)
 
 
 ## Problem No : 02
